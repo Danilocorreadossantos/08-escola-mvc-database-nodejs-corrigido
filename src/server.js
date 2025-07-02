@@ -9,6 +9,12 @@ const professorController = require('./controllers/professor.controller');
 // Criando uma instância do express
 const app = express()
 
+//Configurar o ejs template engine
+app.set("view engine", "ejs")
+
+//configurar a pasta das views
+app.set("views", "./src/views")
+
 
 // Cursos
 app.get('/cursos', cursoController.listar);

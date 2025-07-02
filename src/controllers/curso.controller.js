@@ -1,15 +1,16 @@
-//importar o model de cursos
+// Importar o model de cursos
 const cursoModel = require("../models/curso.model")
 
-async function listar (request, responde) {
-  // chamar a funçao listarTodosCursos do model
+async function listar(request, response) {
+  // Chamar a função listarTodosCursos do model
   const cursos = await cursoModel.listarTodosCursos()
 
-  responde.json(cursos)
-}
+  console.log(cursos)
+  
+  //response.json(cursos);
 
-async function listar(request, response) {
-  //Listar cursos do banco de dados
+  //Renderizar a view listar-cursos
+  response.render('listar-cursos',{ cursos })
 }
 
 function criar(request, response) {
@@ -30,4 +31,3 @@ module.exports = {
   atualizar,
   deletar
 }
-
