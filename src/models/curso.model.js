@@ -16,7 +16,7 @@ async function listarTodosCursos(){
       
       
       //Retornar os cursos
-      cursos[0]
+      return cursos[0]   
 }
 
 module.exports ={

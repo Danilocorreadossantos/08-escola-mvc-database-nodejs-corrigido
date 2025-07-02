@@ -1,14 +1,15 @@
-//importando arquivo de configuraçao do banco de dados
-const bancoDados = require("../config/banco-dados")
+//importar o model de cursos
+const cursoModel = require("../models/curso.model")
 
+async function listar (request, responde) {
+  // chamar a funçao listarTodosCursos do model
+  const cursos = await cursoModel.listarTodosCursos()
+
+  responde.json(cursos)
+}
 
 async function listar(request, response) {
   //Listar cursos do banco de dados
-  const conexao = await bancoDados.conexao
-  const [ cursos ] = await conexao.execute("SELECT * FROM cursos")
-  response.json(cursos)
-
-  console.log('cursos', cursos)
 }
 
 function criar(request, response) {
